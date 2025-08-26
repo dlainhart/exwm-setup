@@ -59,8 +59,8 @@ Below I describe how, and why, I set up and configured the EXWM X11
 [[https://wiki.archlinux.org/index.php/Window_manager][window manager]], on Ubuntu 20.4. I used EXWM version 0.24, and emacs
 version 27.1. For more info on X11 see [[https://en.wikipedia.org/wiki/X_Window_System][X Window System]] and [[https://wiki.archlinux.org/index.php/Xorg][Xorg]].
 
-[[https://github.com/ch11ng/exwm][EXWM]] (Emacs X Window Manager) is a full-featured tiling X window manager for
-Emacs built on top of [[https://github.com/ch11ng/xelb][XELB]].
+[[https://github.com/emacs-exwm/exwm][EXWM]] (Emacs X Window Manager) is a full-featured tiling X window manager for
+Emacs built on top of [[https://github.com/emacs-exwm/xelb][XELB]].
 
 The code used in the setup is rather lengthy, so in this document I include
 only fragments that help explain why and how I did something. A complete
@@ -100,7 +100,7 @@ When you look at the code, remember:
   - How do you want to configure your keyboard?
   - Do you want emacs to handle everything, as is done here, or instead let
     EXWM run under another window environment such as [[https://wiki.archlinux.org/index.php/EXWM][LXDE]] or Gnome,
-    or [[https://github.com/ch11ng/exwm/wiki/Installation-on-macOS][XQuartz under macOS]]?
+    or [[https://github.com/emacs-exwm/exwm/wiki/Installation-on-macOS][XQuartz under macOS]]?
   - At present I have felt no need for a composite manager, such as Compton.
     Again see the [[https://wiki.archlinux.org/index.php/EXWM][archlinux exwm]] page.
   - This setup supports multiple monitors, and plugging and unplugging of
@@ -123,7 +123,7 @@ configuration. And that is the main deficiency at present, the documentation
 for how to do a complete  setup is missing. If you have a setup you feel happy
 with, which might be of help for other users, why not publish a guide?
 For example, how about a more complete guide for EXWM under macOS, beyond
-what is published [[https://github.com/ch11ng/exwm/wiki/Installation-on-macOS][here]]. Or under LXDE or Gnome, or with a composite manager.
+what is published [[https://github.com/emacs-exwm/exwm/wiki/Installation-on-macOS][here]]. Or under LXDE or Gnome, or with a composite manager.
 But please remember: a guide should not just explain how to do something,
 but also why it is done.
 
@@ -418,7 +418,7 @@ exwm-randr-screen-change-hook.
      :ID:       97676e05-f77b-488f-bd11-23e5d5fc26af
      :END:
 Code has been copied from 
-[[https://github.com/ch11ng/exwm/blob/master/exwm-config.el]], changing the names 
+[[https://github.com/emacs-exwm/exwm/blob/master/exwm-config.el]], changing the names
 so they can not collide with exwm proper.
 The code has then been modified, mainly with settings from the [[https://gitlab.com/ambrevar/dotfiles/-/blob/master/.emacs.d/lisp/init-exwm.el][ambrevar]] 
 configuration.
@@ -639,7 +639,6 @@ that xrandr is also provided with arguments to explicitly turn "--off" any
 unavailable screen, if it is part of X11_SCREEN_LIST. The xrandr argument 
 "--auto" could have been used, but "--off" seems to work ok. This is necessary, 
 otherwise "xrandr --listactivemonitors" may list the screen as available. 
-See [[https://github.com/ch11ng/exwm/issues/529]]
 
 First xrandr is executed without arguments, to report the current status of the 
 X11 screens.
